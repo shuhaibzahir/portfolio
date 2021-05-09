@@ -227,8 +227,8 @@
                     }
                     ), 6e3),
                     t[0].reset(); 
-                        alert("Thank you for Sending Message")
-                        window.location.reload()
+                       setTimeout(function(){ window.location.reload() }, 3000);
+                       
                     //     // //window.location.href="https://google.com"
                    
                     
@@ -242,13 +242,13 @@
                             o.fadeOut(200).removeClass("error").html("")
                         }
                         ), 6e3)
-                        alert("Something Error")
+                         setTimeout(function(){ window.location.reload() }, 3000);
                     
                          
                     }
                 })
             }else{
-                alert("invalid form Data");
+                o.addClass("error").html("Form Data Error");
                 i.html("Send again").addClass("error");
              
             }
