@@ -220,7 +220,7 @@
                     data: t.serialize(),
                     success: function (response) {
                     i.removeClass("error").html("Success").addClass("success"),
-                    o.addClass("success").html("Thank you for your message. It has been sent.").fadeIn(200),
+                    o.removeClass("error")o.addClass("success").html("Thank you for your message. It has been sent.").fadeIn(200),
                     setTimeout((function() {
                         i.html(s).removeClass("success").prop("disabled", !1),
                         o.fadeOut(200).removeClass("success").html("")
@@ -248,7 +248,7 @@
                     }
                 })
             }else{
-                o.addClass("error").html("Form Data Error");
+                o.addClass("error").html("Form Data Error"),
                 i.html("Send again").addClass("error");
              
             }
