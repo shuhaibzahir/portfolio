@@ -227,7 +227,7 @@
                     }
                     ), 6e3),
                     t[0].reset(); 
-                        
+                        alert("Thank you for Sending Message")
                         window.location.reload()
                     //     // //window.location.href="https://google.com"
                    
