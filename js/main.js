@@ -241,8 +241,16 @@
                                 })
                             } else {
                                 o.addClass("error").html("Invalid Form data").fadeIn(200),
-                                    i.html("Send again").addClass("error");
-
+                                i.html("Send again").addClass("error");
+                                document.querySelectorAll(".form-control").forEach((a)=>{
+                                    a.addEventListener("input",()=>{
+                                        var chekingAgain = myValidation();
+                                        if (chekingAgain) {
+                                            o.addClass("error").html(" ").fadeIn(200)
+                                        }
+                                    })
+                                })
+                               
                             }
 
                         }), 1e3)
@@ -274,7 +282,7 @@ function nameChek() {
     } else if (name.value.match(expression)) {
         nameAlert.innerHTML = "";
         validated.name = true;
-    } else {
+    } else {         
         nameAlert.innerHTML = " Enter Charecters only"
         validated.name = false
     }
@@ -318,7 +326,6 @@ function messageCheck() {
     var msg = document.getElementById("contact-message");
     var msgAlert = document.getElementById("msg-alert");
     if(!msg.value || /^\s*$/.test(msg.value)){
-//         the pattern indicate with blank spae and nulll vallue
         validated.message = false;
         msgAlert.innerHTML = "*Enter Your Message";
     }
@@ -331,7 +338,7 @@ function messageCheck() {
     }
 }
 
-// this is for checking if anything is null and with blanck space 
+
 
 function nullValueCheck(){
    
@@ -355,7 +362,6 @@ function nullValueCheck(){
         subAlert.innerHTML="*Enter Your Subject"
     }
     else if(msg.value===""){
-        
         msg.focus();
         msgAlert.innerHTML = "*Enter Your Message";
     } 
@@ -366,12 +372,13 @@ function nullValueCheck(){
   
  
    }
-// this is for all checking true 
+
 
 
 function myValidation() {
 
     if (validated.name && validated.email && validated.message && validated.sub) {
+        
         return true;
     } else {
         return false;
